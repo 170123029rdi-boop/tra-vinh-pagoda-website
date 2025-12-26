@@ -1,70 +1,167 @@
-# Getting Started with Create React App
+# Website Giới Thiệu Các Ngôi Chùa Nổi Tiếng Tại Trà Vinh
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Một website hiện đại, tối ưu SEO và responsive được xây dựng bằng React.js để giới thiệu về tỉnh Trà Vinh và các ngôi chùa nổi tiếng.
 
-## Available Scripts
+## 🎯 Tính Năng
 
-In the project directory, you can run:
+- ✅ **Giao diện hiện đại**: Thiết kế đẹp mắt với gradient colors và animations
+- ✅ **Responsive Design**: Tối ưu cho tất cả các thiết bị (desktop, tablet, mobile)
+- ✅ **SEO Optimization**: Meta tags, structured data, và semantic HTML
+- ✅ **Performance**: Lazy loading images, code splitting, và optimized assets
+- ✅ **Routing**: Điều hướng mượt mà giữa các trang
+- ✅ **Contact Form**: Form liên hệ tương tác
+- ✅ **Accessibility**: WCAG compliant với skip links và focus management
 
-### `npm start`
+## 📁 Cấu Trúc Dự Án
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+tra-vinh-website/
+├── public/
+│   └── index.html          # HTML chính với SEO meta tags
+├── src/
+│   ├── components/
+│   │   ├── Header.js       # Navigation header
+│   │   ├── Footer.js       # Footer
+│   │   ├── Hero.js         # Hero section
+│   │   ├── About.js        # About section
+│   │   ├── TempleCard.js   # Card component cho chùa
+│   │   └── TemplesList.js  # Danh sách chùa
+│   ├── pages/
+│   │   ├── Home.js         # Trang chủ
+│   │   ├── TempleDetail.js # Chi tiết chùa
+│   │   └── Contact.js      # Trang liên hệ
+│   ├── data/
+│   │   └── temples.js      # Dữ liệu chùa
+│   ├── styles/
+│   │   └── main.css        # CSS chính
+│   ├── App.js              # Component chính
+│   └── index.js            # Entry point
+└── package.json            # Dependencies
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Cài Đặt & Chạy
 
-### `npm test`
+### Yêu Cầu
+- Node.js (v14 hoặc cao hơn)
+- npm hoặc yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Bước 1: Cài đặt Dependencies
+```bash
+cd tra-vinh-website
+npm install --legacy-peer-deps
+```
 
-### `npm run build`
+### Bước 2: Chạy Development Server
+```bash
+npm start
+```
+Website sẽ mở tại `http://localhost:3000`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Bước 3: Build cho Production
+```bash
+npm run build
+```
+Các file tối ưu sẽ được tạo trong thư mục `build/`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📦 Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **react**: ^19.2.3 - React library
+- **react-dom**: ^19.2.3 - React DOM
+- **react-router-dom**: ^6.x - Routing
+- **react-helmet-async**: ^2.x - SEO meta tags management
+- **axios**: ^1.x - HTTP client (optional)
 
-### `npm run eject`
+## 🎨 Tùy Chỉnh
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Thay Đổi Màu Sắc
+Chỉnh sửa các biến CSS trong `src/styles/main.css`:
+```css
+:root {
+  --primary-color: #8B4513;      /* Màu chính */
+  --secondary-color: #D2691E;    /* Màu phụ */
+  --accent-color: #FFD700;       /* Màu nhấn */
+}
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Thêm Chùa Mới
+Thêm dữ liệu vào `src/data/temples.js`:
+```javascript
+{
+  id: 7,
+  name: "Tên chùa",
+  image: "URL hình ảnh",
+  location: "Địa điểm",
+  description: "Mô tả",
+  history: "Lịch sử",
+  features: ["Đặc điểm 1", "Đặc điểm 2"],
+  visitingHours: "Giờ mở cửa",
+  entryFee: "Vé vào"
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🔍 SEO Optimization
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- ✅ Meta tags cho mỗi trang
+- ✅ Open Graph tags cho social sharing
+- ✅ Semantic HTML structure
+- ✅ Mobile-friendly design
+- ✅ Fast loading times
+- ✅ Structured data ready
 
-## Learn More
+## 📱 Responsive Breakpoints
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Desktop**: 1200px+
+- **Tablet**: 768px - 1199px
+- **Mobile**: < 768px
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ♿ Accessibility
 
-### Code Splitting
+- Semantic HTML elements
+- ARIA labels
+- Keyboard navigation support
+- Focus management
+- Skip links
+- Color contrast compliance
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🚀 Deployment
 
-### Analyzing the Bundle Size
+### Netlify
+```bash
+npm run build
+# Drag and drop build folder to Netlify
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Vercel
+```bash
+npm install -g vercel
+vercel
+```
 
-### Making a Progressive Web App
+### GitHub Pages
+```bash
+npm install gh-pages --save-dev
+# Thêm vào package.json:
+# "homepage": "https://yourusername.github.io/tra-vinh-website"
+# "predeploy": "npm run build"
+# "deploy": "gh-pages -d build"
+npm run deploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📝 Ghi Chú
 
-### Advanced Configuration
+- Hình ảnh hiện tại sử dụng placeholder, thay thế bằng hình ảnh thực tế
+- Form liên hệ cần backend để xử lý dữ liệu
+- Có thể thêm animation library như Framer Motion để tăng interactivity
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📄 License
 
-### Deployment
+MIT License - Tự do sử dụng cho mục đích cá nhân và thương mại
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 👨‍💻 Hỗ Trợ
 
-### `npm run build` fails to minify
+Nếu có vấn đề, vui lòng tạo issue hoặc liên hệ qua email.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+**Phiên bản**: 1.0.0  
+**Cập nhật lần cuối**: 2024

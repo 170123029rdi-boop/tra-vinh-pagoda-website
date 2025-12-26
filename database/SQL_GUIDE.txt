@@ -1,0 +1,270 @@
+================================================================================
+                    HƯỚNG DẪN SỬ DỤNG SQL SCRIPTS
+================================================================================
+
+📁 CẤU TRÚC FILE SQL
+================================================================================
+
+database/
+├── 01_CREATE_DATABASE.sql      ← Chạy TRƯỚC TIÊN
+├── 02_CREATE_VIEWS.sql         ← Chạy THỨ HAI
+├── 03_CREATE_PROCEDURES.sql    ← Chạy THỨ BA
+├── 04_COMMON_QUERIES.sql       ← Chạy THỨ TƯ
+└── SQL_GUIDE.txt               ← File này
+
+================================================================================
+🚀 CÁCH CHẠY TRÊN SQL SERVER MANAGEMENT STUDIO (SSMS)
+================================================================================
+
+BƯỚC 1: Mở SSMS
+  - Kết nối đến SQL Server
+  - Chọn "New Query"
+
+BƯỚC 2: Chạy file 01_CREATE_DATABASE.sql
+  - Mở file: 01_CREATE_DATABASE.sql
+  - Nhấn Ctrl + A để chọn tất cả
+  - Nhấn Ctrl + E hoặc F5 để chạy
+  - Chờ hoàn thành
+
+BƯỚC 3: Chạy file 02_CREATE_VIEWS.sql
+  - Mở file: 02_CREATE_VIEWS.sql
+  - Nhấn Ctrl + A
+  - Nhấn F5
+  - Chờ hoàn thành
+
+BƯỚC 4: Chạy file 03_CREATE_PROCEDURES.sql
+  - Mở file: 03_CREATE_PROCEDURES.sql
+  - Nhấn Ctrl + A
+  - Nhấn F5
+  - Chờ hoàn thành
+
+BƯỚC 5: Chạy file 04_COMMON_QUERIES.sql
+  - Mở file: 04_COMMON_QUERIES.sql
+  - Chọn query muốn chạy
+  - Nhấn F5
+  - Xem kết quả
+
+================================================================================
+📊 CẤU TRÚC DATABASE
+================================================================================
+
+Database: TRA_VINH_PAGODA
+
+Bảng:
+  1. Category (Danh mục)
+     - _id (INT, Primary Key)
+     - type_name (NVARCHAR)
+     - district (NVARCHAR)
+     - created_at, updated_at
+
+  2. Pagoda (Ngôi chùa)
+     - _id (INT, Primary Key)
+     - name (NVARCHAR)
+     - history (NVARCHAR MAX)
+     - description (NVARCHAR MAX)
+     - address (NVARCHAR)
+     - latitude, longitude (FLOAT)
+     - category_id (INT, Foreign Key)
+     - created_at, updated_at
+
+  3. PagodaImage (Ảnh chùa)
+     - _id (INT, Primary Key)
+     - pagoda_id (INT, Foreign Key)
+     - image_url (NVARCHAR)
+     - image_title (NVARCHAR)
+     - display_order (INT)
+     - created_at
+
+  4. Post (Bài viết)
+     - _id (INT, Primary Key)
+     - title (NVARCHAR)
+     - content (NVARCHAR MAX)
+     - thumbnail (NVARCHAR)
+     - author (NVARCHAR)
+     - created_at, updated_at
+
+  5. Account (Tài khoản Admin)
+     - _id (INT, Primary Key)
+     - username (NVARCHAR, Unique)
+     - password (NVARCHAR)
+     - role (NVARCHAR)
+     - created_at, updated_at
+
+================================================================================
+📋 DANH SÁCH QUERIES THƯỜNG DÙNG
+================================================================================
+
+1. Lấy tất cả chùa
+   SELECT * FROM Pagoda;
+
+2. Lấy chùa theo danh mục
+   SELECT p.*, c.type_name FROM Pagoda p
+   INNER JOIN Category c ON p.category_id = c._id
+   WHERE c.type_name = N'Chùa Khmer';
+
+3. Lấy chi tiết chùa với ảnh
+   SELECT p.*, pi.image_url FROM Pagoda p
+   LEFT JOIN PagodaImage pi ON p._id = pi.pagoda_id
+   WHERE p._id = 1;
+
+4. Lấy tất cả bài viết
+   SELECT * FROM Post ORDER BY created_at DESC;
+
+5. Tìm kiếm chùa
+   SELECT * FROM Pagoda WHERE name LIKE N'%Khmer%';
+
+6. Đếm số chùa theo danh mục
+   SELECT c.type_name, COUNT(p._id) AS count
+   FROM Category c LEFT JOIN Pagoda p ON c._id = p.category_id
+   GROUP BY c.type_name;
+
+7. Lấy chùa có nhiều ảnh nhất
+   SELECT TOP 5 p._id, p.name, COUNT(pi._id) AS image_count
+   FROM Pagoda p LEFT JOIN PagodaImage pi ON p._id = pi.pagoda_id
+   GROUP BY p._id, p.name ORDER BY image_count DESC;
+
+8. Lấy bài viết gần đây nhất
+   SELECT TOP 5 * FROM Post ORDER BY created_at DESC;
+
+================================================================================
+🔧 STORED PROCEDURES
+================================================================================
+
+1. sp_get_pagoda_by_category
+   EXEC sp_get_pagoda_by_category @category_id = 1;
+
+2. sp_get_pagoda_detail
+   EXEC sp_get_pagoda_detail @pagoda_id = 1;
+
+3. sp_get_posts
+   EXEC sp_get_posts @page_number = 1, @page_size = 10;
+
+4. sp_search_pagoda
+   EXEC sp_search_pagoda @search_keyword = N'Khmer';
+
+================================================================================
+👁️ VIEWS
+================================================================================
+
+1. vw_pagoda_with_category
+   SELECT * FROM vw_pagoda_with_category;
+
+2. vw_pagoda_with_image_count
+   SELECT * FROM vw_pagoda_with_image_count;
+
+================================================================================
+📈 DỮ LIỆU MẪU
+================================================================================
+
+Categories:
+  - Chùa Khmer (Trà Ôn, Cầu Ngang)
+  - Chùa Việt (Thành phố Trà Vinh)
+  - Chùa Hoa (Duyên Hải)
+
+Pagodas (6 ngôi chùa):
+  1. Chùa Cô Tôn
+  2. Chùa Ông Mười
+  3. Chùa Khmer Mạc Cửu
+  4. Chùa Cái Bè
+  5. Chùa Ông Bà
+  6. Chùa Mỹ Tho
+
+Posts (3 bài viết):
+  1. Khám Phá Kiến Trúc Chùa Khmer Tại Trà Vinh
+  2. Lịch Sử Phát Triển Các Ngôi Chùa Tại Trà Vinh
+  3. Du Lịch Tâm Linh Tại Trà Vinh
+
+Accounts (2 tài khoản):
+  - admin
+  - editor
+
+================================================================================
+🔑 KHÓA NGOẠI (FOREIGN KEYS)
+================================================================================
+
+Pagoda.category_id → Category._id
+PagodaImage.pagoda_id → Pagoda._id (ON DELETE CASCADE)
+
+================================================================================
+📑 CHỈ MỤC (INDEXES)
+================================================================================
+
+- idx_pagoda_category: Pagoda(category_id)
+- idx_pagoda_image: PagodaImage(pagoda_id)
+- idx_post_author: Post(author)
+- idx_account_username: Account(username)
+
+================================================================================
+💡 TIPS & TRICKS
+================================================================================
+
+1. Kiểm tra dữ liệu
+   SELECT COUNT(*) FROM Pagoda;
+   SELECT COUNT(*) FROM Category;
+   SELECT COUNT(*) FROM Post;
+
+2. Xóa dữ liệu (cẩn thận!)
+   DELETE FROM Pagoda WHERE _id = 1;
+
+3. Cập nhật dữ liệu
+   UPDATE Pagoda SET name = N'Tên mới' WHERE _id = 1;
+
+4. Thêm dữ liệu mới
+   INSERT INTO Pagoda (name, address, category_id) 
+   VALUES (N'Chùa mới', N'Địa chỉ', 1);
+
+5. Xem cấu trúc bảng
+   EXEC sp_help 'Pagoda';
+
+================================================================================
+🐛 TROUBLESHOOTING
+================================================================================
+
+Lỗi: "CREATE VIEW must be the first statement"
+  → Chạy file 02_CREATE_VIEWS.sql riêng biệt
+
+Lỗi: "CREATE PROCEDURE must be the first statement"
+  → Chạy file 03_CREATE_PROCEDURES.sql riêng biệt
+
+Lỗi: "Database already exists"
+  → Xóa database cũ hoặc đổi tên database
+
+Lỗi: "Foreign key constraint"
+  → Kiểm tra category_id tồn tại trong Category
+
+================================================================================
+📞 LIÊN HỆ & HỖ TRỢ
+================================================================================
+
+Nếu gặp vấn đề:
+1. Kiểm tra lại các bước
+2. Xem error message
+3. Chạy từng file riêng biệt
+4. Kiểm tra dữ liệu mẫu
+
+================================================================================
+✅ CHECKLIST
+================================================================================
+
+- [ ] Chạy 01_CREATE_DATABASE.sql
+- [ ] Chạy 02_CREATE_VIEWS.sql
+- [ ] Chạy 03_CREATE_PROCEDURES.sql
+- [ ] Kiểm tra database được tạo
+- [ ] Kiểm tra bảng được tạo
+- [ ] Kiểm tra dữ liệu mẫu
+- [ ] Chạy queries thử nghiệm
+- [ ] Kiểm tra views
+- [ ] Kiểm tra procedures
+
+================================================================================
+🎉 HOÀN THÀNH!
+================================================================================
+
+Database TRA_VINH_PAGODA đã sẵn sàng sử dụng!
+
+Bước tiếp theo:
+1. Kết nối database với backend (Node.js, Python, etc.)
+2. Tạo API endpoints
+3. Kết nối với React frontend
+
+================================================================================

@@ -1,0 +1,207 @@
+================================================================================
+                    HƯỚNG DẪN SỬ DỤNG ADMIN PANEL
+================================================================================
+
+🔐 ĐĂNG NHẬP ADMIN
+================================================================================
+
+URL: http://localhost:3000/admin/login
+
+Demo Account:
+  Username: admin
+  Password: admin123
+
+================================================================================
+📊 ADMIN DASHBOARD
+================================================================================
+
+Sau khi đăng nhập, bạn sẽ thấy dashboard với các chức năng:
+
+1. DASHBOARD
+   - Xem thống kê tổng quan
+   - Số lượng chùa, bài viết, tài khoản, danh mục
+
+2. QUẢN LÝ CHÙA (🏯)
+   - Xem danh sách tất cả chùa
+   - Thêm chùa mới
+   - Sửa thông tin chùa
+   - Xóa chùa
+
+3. QUẢN LÝ BÀI VIẾT (📝)
+   - Xem danh sách bài viết
+   - Thêm bài viết mới
+   - Sửa bài viết
+   - Xóa bài viết
+
+4. QUẢN LÝ TÀI KHOẢN (👥)
+   - Xem danh sách tài khoản
+   - Thêm tài khoản mới
+   - Sửa quyền tài khoản
+   - Xóa tài khoản
+
+================================================================================
+🎯 CHỨC NĂNG CHI TIẾT
+================================================================================
+
+A. QUẢN LÝ CHÙA
+
+1. Thêm chùa mới:
+   - Click nút "+ Thêm chùa mới"
+   - Điền thông tin:
+     * Tên chùa
+     * Danh mục (Chùa Khmer, Chùa Việt, Chùa Hoa)
+     * Huyện (Trà Ôn, Cầu Ngang, Thành phố Trà Vinh, Duyên Hải)
+   - Click "Lưu"
+
+2. Sửa chùa:
+   - Click nút "Sửa" trên hàng chùa
+   - Chỉnh sửa thông tin
+   - Click "Lưu"
+
+3. Xóa chùa:
+   - Click nút "Xóa" trên hàng chùa
+   - Xác nhận xóa
+
+B. QUẢN LÝ BÀI VIẾT
+
+1. Thêm bài viết:
+   - Click nút "+ Thêm bài viết"
+   - Điền thông tin:
+     * Tiêu đề
+     * Nội dung
+     * Tác giả
+     * Hình ảnh đại diện
+   - Click "Lưu"
+
+2. Sửa bài viết:
+   - Click nút "Sửa" trên hàng bài viết
+   - Chỉnh sửa thông tin
+   - Click "Lưu"
+
+3. Xóa bài viết:
+   - Click nút "Xóa" trên hàng bài viết
+   - Xác nhận xóa
+
+C. QUẢN LÝ TÀI KHOẢN
+
+1. Thêm tài khoản:
+   - Click nút "+ Thêm tài khoản"
+   - Điền thông tin:
+     * Username
+     * Password
+     * Role (Admin, Editor, Viewer)
+   - Click "Lưu"
+
+2. Sửa tài khoản:
+   - Click nút "Sửa" trên hàng tài khoản
+   - Chỉnh sửa thông tin
+   - Click "Lưu"
+
+3. Xóa tài khoản:
+   - Click nút "Xóa" trên hàng tài khoản
+   - Xác nhận xóa
+
+================================================================================
+📋 DANH SÁCH CHÙA MẶC ĐỊNH
+================================================================================
+
+1. Chùa Cô Tôn
+   - Danh mục: Chùa Khmer
+   - Huyện: Trà Ôn
+   - Địa chỉ: Xã Tân Phú Đông, huyện Trà Ôn
+
+2. Chùa Ông Mười
+   - Danh mục: Chùa Việt
+   - Huyện: Thành phố Trà Vinh
+   - Địa chỉ: Thành phố Trà Vinh
+
+3. Chùa Khmer Mạc Cửu
+   - Danh mục: Chùa Khmer
+   - Huyện: Trà Ôn
+   - Địa chỉ: Xã Tân Phú Tây, huyện Trà Ôn
+
+4. Chùa Cái Bè
+   - Danh mục: Chùa Khmer
+   - Huyện: Cầu Ngang
+   - Địa chỉ: Xã Cái Bè, huyện Cầu Ngang
+
+5. Chùa Ông Bà
+   - Danh mục: Chùa Việt
+   - Huyện: Thành phố Trà Vinh
+   - Địa chỉ: Thành phố Trà Vinh
+
+6. Chùa Mỹ Tho
+   - Danh mục: Chùa Khmer
+   - Huyện: Trà Ôn
+   - Địa chỉ: Xã Tân Phú Tây, huyện Trà Ôn
+
+================================================================================
+🔒 BẢO MẬT
+================================================================================
+
+- Token được lưu trong localStorage
+- Tự động đăng xuất sau 24 giờ
+- Mật khẩu được mã hóa trước khi lưu
+- Chỉ admin mới có quyền xóa dữ liệu
+
+================================================================================
+⚠️ LƯU Ý QUAN TRỌNG
+================================================================================
+
+1. Luôn backup dữ liệu trước khi xóa
+2. Không chia sẻ tài khoản admin
+3. Thay đổi mật khẩu định kỳ
+4. Kiểm tra log hoạt động thường xuyên
+5. Cập nhật website thường xuyên
+
+================================================================================
+🆘 TROUBLESHOOTING
+================================================================================
+
+Vấn đề: Không thể đăng nhập
+Giải pháp:
+  - Kiểm tra username/password
+  - Xóa cache browser
+  - Thử đăng nhập lại
+
+Vấn đề: Dữ liệu không được lưu
+Giải pháp:
+  - Kiểm tra kết nối internet
+  - Kiểm tra console (F12) có lỗi không
+  - Thử làm mới trang
+
+Vấn đề: Không thể xóa chùa
+Giải pháp:
+  - Kiểm tra quyền tài khoản
+  - Kiểm tra chùa có bài viết liên kết không
+  - Thử xóa bài viết trước
+
+================================================================================
+📞 LIÊN HỆ HỖ TRỢ
+================================================================================
+
+Nếu gặp vấn đề:
+1. Kiểm tra console (F12) xem có lỗi không
+2. Xem lại hướng dẫn này
+3. Liên hệ với nhóm phát triển
+
+================================================================================
+✅ CHECKLIST QUẢN LÝ
+================================================================================
+
+Hàng ngày:
+- [ ] Kiểm tra dashboard
+- [ ] Xem bài viết mới
+- [ ] Kiểm tra feedback từ người dùng
+
+Hàng tuần:
+- [ ] Backup dữ liệu
+- [ ] Kiểm tra thống kê
+- [ ] Cập nhật nội dung
+
+Hàng tháng:
+- [ ] Kiểm tra bảo mật
+- [ ] Cập nhật chùa mới
+- [ ] Xóa dữ liệu cũ
+
+================================================================================

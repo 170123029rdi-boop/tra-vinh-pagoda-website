@@ -1,0 +1,222 @@
+================================================================================
+                    HƯỚNG DẪN THAY ĐỔI TRANG CHỦ
+================================================================================
+
+✅ CÓ - Admin có thể thay đổi trang chủ!
+
+================================================================================
+📍 TRUY CẬP SETTINGS
+================================================================================
+
+1. Đăng nhập Admin:
+   URL: http://localhost:3000/admin/login
+   Username: admin
+   Password: admin123
+
+2. Click vào tab "⚙️ Cài Đặt" ở sidebar
+
+================================================================================
+🎯 CHỨC NĂNG THAY ĐỔI TRANG CHỦ
+================================================================================
+
+A. HERO SECTION (Phần tiêu đề lớn)
+
+1. Thay đổi tiêu đề:
+   - Nhập tiêu đề mới vào ô "Tiêu đề Hero"
+   - Ví dụ: "Khám Phá Trà Vinh"
+
+2. Thay đổi mô tả:
+   - Nhập mô tả mới vào ô "Mô tả Hero"
+   - Ví dụ: "Tìm hiểu về những ngôi chùa cổ kính..."
+
+3. Thay đổi hình ảnh:
+   - Cách 1: Click vào ô upload, chọn ảnh từ máy
+   - Cách 2: Nhập URL ảnh trực tiếp
+   - Hỗ trợ định dạng: JPG, PNG, WebP
+
+B. ABOUT SECTION (Phần giới thiệu)
+
+1. Thay đổi tiêu đề About:
+   - Nhập tiêu đề mới vào ô "Tiêu đề About"
+   - Ví dụ: "Về Trà Vinh"
+
+2. Thay đổi mô tả About:
+   - Nhập mô tả mới vào ô "Mô tả About"
+   - Có thể nhập nhiều dòng
+
+3. Thay đổi hình ảnh About:
+   - Tương tự như Hero Section
+   - Upload hoặc nhập URL
+
+C. CÀI ĐẶT SEO (Tối ưu tìm kiếm)
+
+1. Tiêu đề Website (Title):
+   - Hiển thị trên tab browser
+   - Hiển thị trên kết quả Google
+   - Tối đa 60 ký tự
+
+2. Mô tả Website (Meta Description):
+   - Hiển thị dưới tiêu đề trong Google
+   - Tối đa 160 ký tự
+   - Ảnh hưởng đến click-through rate
+
+================================================================================
+📋 DANH SÁCH CÀI ĐẶT CÓ THỂ THAY ĐỔI
+================================================================================
+
+Hero Section:
+  ✓ Tiêu đề (heroTitle)
+  ✓ Mô tả (heroDescription)
+  ✓ Hình ảnh (heroImage)
+
+About Section:
+  ✓ Tiêu đề (aboutTitle)
+  ✓ Mô tả (aboutDescription)
+  ✓ Hình ảnh (aboutImage)
+
+SEO Settings:
+  ✓ Tiêu đề website (siteTitle)
+  ✓ Mô tả website (siteDescription)
+
+================================================================================
+🖼️ HƯỚNG DẪN UPLOAD HÌNH ẢNH
+================================================================================
+
+Cách 1: Upload từ máy tính
+  1. Click vào ô "📁 Nhấp để tải lên hoặc kéo thả ảnh"
+  2. Chọn ảnh từ máy tính
+  3. Ảnh sẽ hiển thị preview
+  4. Click "💾 Lưu Cài Đặt"
+
+Cách 2: Nhập URL ảnh
+  1. Nhập URL ảnh vào ô "Hoặc nhập URL ảnh"
+  2. Click nút "Tải từ URL"
+  3. Ảnh sẽ hiển thị preview
+  4. Click "💾 Lưu Cài Đặt"
+
+Kích thước ảnh khuyến nghị:
+  - Hero Image: 1920x600px (hoặc tỷ lệ 16:5)
+  - About Image: 400x400px (hoặc tỷ lệ 1:1)
+
+================================================================================
+💾 LƯU CÀI ĐẶT
+================================================================================
+
+Sau khi thay đổi:
+  1. Scroll xuống cuối trang
+  2. Click nút "💾 Lưu Tất Cả Cài Đặt"
+  3. Sẽ thấy thông báo "✓ Cài đặt đã được lưu thành công!"
+  4. Cài đặt được lưu trong localStorage
+
+Kiểm tra kết quả:
+  1. Quay lại trang chủ (http://localhost:3000)
+  2. Làm mới trang (F5)
+  3. Xem thay đổi đã áp dụng
+
+================================================================================
+👁️ XEM TRƯỚC SEO
+================================================================================
+
+Phần "Xem Trước" hiển thị:
+  - Cách Google hiển thị trang chủ
+  - Tiêu đề (Title)
+  - URL
+  - Mô tả (Meta Description)
+
+Lưu ý:
+  - Tiêu đề tối đa 60 ký tự
+  - Mô tả tối đa 160 ký tự
+  - Nếu vượt quá sẽ bị cắt ngắn
+
+================================================================================
+⚠️ LƯU Ý QUAN TRỌNG
+================================================================================
+
+1. Lưu cài đặt thường xuyên
+   - Sau mỗi thay đổi, click "💾 Lưu"
+   - Không lưu sẽ mất dữ liệu
+
+2. Kích thước ảnh
+   - Ảnh quá lớn sẽ làm chậm website
+   - Nên nén ảnh trước khi upload
+
+3. URL ảnh
+   - Phải là URL hợp lệ (http:// hoặc https://)
+   - Ảnh phải tồn tại trên server
+
+4. Backup dữ liệu
+   - Lưu lại cài đặt cũ trước khi thay đổi
+   - Có thể khôi phục nếu cần
+
+================================================================================
+🔄 KHÔI PHỤC CÀI ĐẶT MẶC ĐỊNH
+================================================================================
+
+Nếu muốn quay lại cài đặt mặc định:
+  1. Mở Developer Tools (F12)
+  2. Vào tab Console
+  3. Gõ: localStorage.removeItem('siteSettings')
+  4. Nhấn Enter
+  5. Làm mới trang
+
+================================================================================
+📸 VÍ DỤ THAY ĐỔI
+================================================================================
+
+Ví dụ 1: Thay đổi tiêu đề Hero
+  Cũ: "Khám Phá Trà Vinh"
+  Mới: "Trà Vinh - Nơi Linh Thiêng"
+
+Ví dụ 2: Thay đổi mô tả About
+  Cũ: "Trà Vinh là một tỉnh xinh đẹp..."
+  Mới: "Trà Vinh nổi tiếng với các ngôi chùa cổ kính..."
+
+Ví dụ 3: Thay đổi hình ảnh Hero
+  Cũ: https://via.placeholder.com/1920x600
+  Mới: https://example.com/my-image.jpg
+
+================================================================================
+🆘 TROUBLESHOOTING
+================================================================================
+
+Vấn đề: Cài đặt không được lưu
+Giải pháp:
+  - Kiểm tra console (F12) có lỗi không
+  - Thử xóa cache browser
+  - Thử đăng nhập lại
+
+Vấn đề: Hình ảnh không hiển thị
+Giải pháp:
+  - Kiểm tra URL ảnh có đúng không
+  - Thử upload ảnh từ máy tính
+  - Kiểm tra định dạng ảnh
+
+Vấn đề: Thay đổi không hiển thị trên trang chủ
+Giải pháp:
+  - Làm mới trang (F5 hoặc Ctrl+Shift+R)
+  - Xóa cache browser
+  - Kiểm tra cài đặt đã được lưu không
+
+================================================================================
+✅ CHECKLIST
+================================================================================
+
+Trước khi thay đổi:
+  - [ ] Backup cài đặt cũ
+  - [ ] Chuẩn bị hình ảnh mới
+  - [ ] Viết nội dung mới
+
+Khi thay đổi:
+  - [ ] Nhập tiêu đề mới
+  - [ ] Nhập mô tả mới
+  - [ ] Upload/nhập URL hình ảnh
+  - [ ] Xem trước SEO
+  - [ ] Click "💾 Lưu Cài Đặt"
+
+Sau khi thay đổi:
+  - [ ] Kiểm tra thông báo lưu thành công
+  - [ ] Quay lại trang chủ
+  - [ ] Làm mới trang
+  - [ ] Kiểm tra thay đổi đã áp dụng
+
+================================================================================

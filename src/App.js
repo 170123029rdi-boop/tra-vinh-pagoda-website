@@ -18,18 +18,27 @@ function App() {
         <Router>
           <div className="app">
             <Routes>
+              <Route path="/admin" element={<AdminLogin />} />
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
-              <Route path="*" element={
+              <Route path="/" element={
                 <>
                   <Header />
-                  <main>
-                    <Routes>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/temple/:id" element={<TempleDetail />} />
-                      <Route path="/contact" element={<Contact />} />
-                    </Routes>
-                  </main>
+                  <Home />
+                  <Footer />
+                </>
+              } />
+              <Route path="/temple/:id" element={
+                <>
+                  <Header />
+                  <TempleDetail />
+                  <Footer />
+                </>
+              } />
+              <Route path="/contact" element={
+                <>
+                  <Header />
+                  <Contact />
                   <Footer />
                 </>
               } />

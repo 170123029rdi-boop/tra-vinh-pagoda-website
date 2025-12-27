@@ -1,0 +1,14 @@
+{
+  "pagodas": [
+    { 
+      "_id": 1, 
+      "name": "Chùa Cô Tôn", 
+      "category": "Chùa Khmer", 
+      "district": "Trà Ôn", 
+      "image": "https://via.placeholder.com/400x300?text=Chùa+Cô+Tôn", 
+      "description": "Kiến trúc Khmer-Việt độc đáo"
+    }
+  ],
+  "posts": [],
+  "landscapes": []
+}

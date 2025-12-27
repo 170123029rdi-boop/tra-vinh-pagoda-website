@@ -47,7 +47,9 @@ const Footer = () => {
         </div>
       </footer>
       
-      <Link to="/admin" style={adminButtonStyle}>🔐 Admin</Link>
+      <Link to="/admin" style={adminButtonStyle} onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'} onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}>
+        ⚙️ Quản trị
+      </Link>
     </>
   );
 };
@@ -56,16 +58,19 @@ const adminButtonStyle = {
   position: 'fixed',
   bottom: '20px',
   left: '20px',
-  backgroundColor: '#2c3e50',
+  backgroundColor: '#e74c3c',
   color: 'white',
-  padding: '12px 20px',
+  padding: '15px 25px',
   borderRadius: '50px',
   textDecoration: 'none',
-  fontSize: '14px',
+  fontSize: '16px',
   fontWeight: 'bold',
-  boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+  boxShadow: '0 6px 20px rgba(231, 76, 60, 0.4)',
   zIndex: 1000,
   transition: 'all 0.3s ease',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '8px',
 };
 
 export default Footer;

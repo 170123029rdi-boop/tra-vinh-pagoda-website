@@ -133,27 +133,35 @@ export const DataProvider = ({ children }) => {
   ]);
 
   useEffect(() => {
-    // Không load từ localStorage nữa - dùng data mặc định
+    const savedSettings = localStorage.getItem('siteSettings');
+    const savedPagodas = localStorage.getItem('sitePagodas');
+    const savedPosts = localStorage.getItem('sitePosts');
+    const savedLandscapes = localStorage.getItem('siteLandscapes');
+
+    if (savedSettings) setSettings(JSON.parse(savedSettings));
+    if (savedPagodas) setPagodas(JSON.parse(savedPagodas));
+    if (savedPosts) setPosts(JSON.parse(savedPosts));
+    if (savedLandscapes) setLandscapes(JSON.parse(savedLandscapes));
   }, []);
 
   const updateSettings = (newSettings) => {
     setSettings(newSettings);
-    // Không lưu localStorage - chỉ update state tạm thời
+    localStorage.setItem('siteSettings', JSON.stringify(newSettings));
   };
 
   const updatePagodas = (newPagodas) => {
     setPagodas(newPagodas);
-    // Không lưu localStorage - chỉ update state tạm thời
+    localStorage.setItem('sitePagodas', JSON.stringify(newPagodas));
   };
 
   const updatePosts = (newPosts) => {
     setPosts(newPosts);
-    // Không lưu localStorage - chỉ update state tạm thời
+    localStorage.setItem('sitePosts', JSON.stringify(newPosts));
   };
 
   const updateLandscapes = (newLandscapes) => {
     setLandscapes(newLandscapes);
-    // Không lưu localStorage - chỉ update state tạm thời
+    localStorage.setItem('siteLandscapes', JSON.stringify(newLandscapes));
   };
 
   return (
